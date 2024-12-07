@@ -1,1 +1,6 @@
 .zsh/custom
+.tmux/plugins/tmux-battery/
+.tmux/plugins/tmux-online-status/
+.tmux/plugins/tmux/
+.tmux/plugins/vim-tmux-navigator/
+
