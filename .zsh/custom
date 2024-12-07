@@ -1,4 +1,0 @@
-source /etc/bash_completion.d/hgd
-export PATH=$PATH:~/tools/Android/platform-tools:/usr/local/google/home/xnzhao/tools/codeql-linux64/codeql
-export PATH=$HOME/.local/bin:$PATH
-export PATH=/usr/local/google/home/xnzhao/tools/nvim-linux64/bin:$PATH
