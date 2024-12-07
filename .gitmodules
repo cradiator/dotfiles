@@ -1,15 +1,4 @@
 [submodule ".tmux/plugins/tpm"]
 	path = .tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm
-[submodule ".tmux/plugins/tmux"]
-	path = .tmux/plugins/tmux
-	url = https://github.com/catppuccin/tmux.git
-[submodule ".tmux/plugins/tmux-online-status"]
-	path = .tmux/plugins/tmux-online-status
-	url = https://github.com/tmux-plugins/tmux-online-status.git
-[submodule ".tmux/plugins/tmux-battery"]
-	path = .tmux/plugins/tmux-battery
-	url = https://github.com/tmux-plugins/tmux-battery.git
-[submodule ".tmux/plugins/vim-tmux-navigator"]
-	path = .tmux/plugins/vim-tmux-navigator
-	url = https://github.com/alexghergh/nvim-tmux-navigation.git
+

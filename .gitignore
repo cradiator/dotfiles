@@ -1,1 +1,3 @@
 .zsh/custom
+.tmux/*
+!.tmux/tpm/
