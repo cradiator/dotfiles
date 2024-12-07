@@ -1,0 +1,6 @@
+PATH=~/Tools/codeql-2.17.4:$PATH
+PATH=/Users/crady/Tools/platform-tools:$PATH
+PATH=~/Tools/jadx-1.4.7/bin:$PATH
+PATH=~/.local/bin:$PATH
+export PATH="/usr/local/opt/llvm@16/bin:$PATH"
+
