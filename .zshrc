@@ -1,5 +1,6 @@
 # Start ssh-agent if not already running
-if ! pgrep -q ssh-agent; then
+pgrep -l ssh-agent > /dev/null
+if [[ $? -ne 0 ]]; then
     ssh-agent > ~/.ssh/agent-env
 fi
 
