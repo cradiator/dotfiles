@@ -27,6 +27,13 @@ else
     echo "Unsupported OS: $(uname)"
 fi
 
+# Check if lsd is installed
+if command -v lsd &> /dev/null; then
+  alias ls='lsd'
+else
+  alias ls='ls --color=auto' # Fallback to default ls with color
+fi
+
 # Load custom config
 if [[ -f "$HOME/.zsh/custom" ]]; then
         source "$HOME/.zsh/custom"
