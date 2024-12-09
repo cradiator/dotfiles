@@ -3,4 +3,5 @@
 .tmux/plugins/tmux-online-status/
 .tmux/plugins/tmux/
 .tmux/plugins/vim-tmux-navigator/
+.tmux/plugins/tmux-fzf/
 
