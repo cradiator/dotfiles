@@ -34,6 +34,10 @@ else
   alias ls='ls --color=auto' # Fallback to default ls with color
 fi
 
+if command -v fzf &> /dev/null; then
+  source <(fzf --zsh)
+fi
+
 # Load custom config
 if [[ -f "$HOME/.zsh/custom" ]]; then
         source "$HOME/.zsh/custom"
