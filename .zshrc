@@ -35,7 +35,14 @@ else
 fi
 
 if command -v fzf &> /dev/null; then
-  source <(fzf --zsh)
+  if fzf --zsh &> /dev/null; then
+    source <(fzf --zsh)
+  fi
+fi
+
+# Load zoxide
+if command -v zoxide &> /dev/null; then
+  eval "$(zoxide init zsh)"
 fi
 
 # Load custom config

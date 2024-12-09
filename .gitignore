@@ -5,3 +5,4 @@
 .tmux/plugins/vim-tmux-navigator/
 .tmux/plugins/tmux-fzf/
 
+.config/nvim/lazy-lock.json
