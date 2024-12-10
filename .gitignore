@@ -4,5 +4,6 @@
 .tmux/plugins/tmux/
 .tmux/plugins/vim-tmux-navigator/
 .tmux/plugins/tmux-fzf/
+.tmux/plugins/tmux-yank/
 
 .config/nvim/lazy-lock.json
