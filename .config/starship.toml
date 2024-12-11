@@ -1,169 +1,165 @@
-"$schema" = 'https://starship.rs/config-schema.json'
-
-format = """
-[](color_orange)\
-$os\
+format = """\
+[╭╴](fg:arrow)\
 $username\
-[](bg:color_yellow fg:color_orange)\
-$directory\
-[](fg:color_yellow bg:color_aqua)\
+$os\
 $git_branch\
-$git_status\
-[](fg:color_aqua bg:color_blue)\
-$c\
-$rust\
-$golang\
-$nodejs\
-$php\
-$java\
-$kotlin\
-$haskell\
-$python\
-[](fg:color_blue bg:color_bg3)\
-$docker_context\
-$conda\
-[](fg:color_bg3 bg:color_bg1)\
-$time\
-[ ](fg:color_bg1)\
-$line_break$character"""
+(\
+    at \
+    $directory\
+)\
+$cmd_duration\
+(\
+    via \
+    $python\
+    $conda\
+    $nodejs\
+    $c\
+    $rust\
+    $java\
+)
+[╰─](fg:arrow)$character\
+"""
+# Add the modules you need
 
-palette = 'gruvbox_dark'
+# Disable the blank line at the start of the prompt
+add_newline = true
 
-[palettes.gruvbox_dark]
-color_fg0 = '#fbf1c7'
-color_bg1 = '#3c3836'
-color_bg3 = '#665c54'
-color_blue = '#458588'
-color_aqua = '#689d6a'
-color_green = '#98971a'
-color_orange = '#d65d0e'
-color_purple = '#b16286'
-color_red = '#cc241d'
-color_yellow = '#d79921'
 
-[os]
-disabled = false
-style = "bg:color_orange fg:color_fg0"
+palette = "normal"
 
-[os.symbols]
-Windows = "󰍲"
-Ubuntu = "󰕈"
-SUSE = ""
-Raspbian = "󰐿"
-Mint = "󰣭"
-Macos = "󰀵"
-Manjaro = ""
-Linux = "󰌽"
-Gentoo = "󰣨"
-Fedora = "󰣛"
-Alpine = ""
-Amazon = ""
-Android = ""
-Arch = "󰣇"
-Artix = "󰣇"
-EndeavourOS = ""
-CentOS = ""
-Debian = "󰣚"
-Redhat = "󱄛"
-RedHatEnterprise = "󱄛"
-Pop = ""
+
+[palettes.normal]
+arrow = "#333533"
+os = "#16f4d0"
+os_admin = "#e4ff1a"
+directory = "#9ffff5"
+time = "#bdfffd"
+node = "#a5e6ba"
+git = "#f17f29"
+git_status = "#DFEBED"
+python = "#edf67d"
+conda = "#70e000"
+java = "#F86279"
+rust = "#ffdac6"
+clang = "#caf0f8"
+duration = "#ce4257"
+text_color = "#EDF2F4"
+text_light = "#26272A"
+
+# I disabled some modules (Rust, Java...) since some things aren't installed in my machine, enable them if you need.
 
 [username]
+style_user = 'bold os'
+style_root = 'bold os_admin'
+format = '[  $user](fg:$style) '
+disabled = false
 show_always = true
-style_user = "bg:color_orange fg:color_fg0"
-style_root = "bg:color_orange fg:color_fg0"
-format = '[ $user ]($style)'
 
-[directory]
-style = "fg:color_fg0 bg:color_yellow"
-format = "[ $path ]($style)"
-truncation_length = 4
-truncation_symbol = ".../"
+[os]
+format = "on [($name)]($style) "
+style = "bold blue"
+disabled = true
 
-[directory.substitutions]
-"Documents" = "󰈙 "
-"Downloads" = " "
-"Music" = "󰝚 "
-"Pictures" = " "
-"Developer" = "󰲋 "
-
-[git_branch]
-symbol = ""
-style = "bg:color_aqua"
-format = '[[ $symbol $branch ](fg:color_fg0 bg:color_aqua)]($style)'
-
-[git_status]
-style = "bg:color_aqua"
-format = '[[($all_status$ahead_behind )](fg:color_fg0 bg:color_aqua)]($style)'
-
-[nodejs]
-symbol = ""
-style = "bg:color_blue"
-format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
-
-[c]
-symbol = " "
-style = "bg:color_blue"
-format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
-
-[rust]
-symbol = ""
-style = "bg:color_blue"
-format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
-
-[golang]
-symbol = ""
-style = "bg:color_blue"
-format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
-
-[php]
-symbol = ""
-style = "bg:color_blue"
-format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
-
-[java]
-symbol = ""
-style = "bg:color_blue"
-format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
-
-[kotlin]
-symbol = ""
-style = "bg:color_blue"
-format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
-
-[haskell]
-symbol = ""
-style = "bg:color_blue"
-format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
-
-[python]
-symbol = ""
-style = "bg:color_blue"
-format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
-
-[docker_context]
-symbol = ""
-style = "bg:color_bg3"
-format = '[[ $symbol( $context) ](fg:#83a598 bg:color_bg3)]($style)'
-
-[conda]
-style = "bg:color_bg3"
-format = '[[ $symbol( $environment) ](fg:#83a598 bg:color_bg3)]($style)'
-
-[time]
-disabled = false
-time_format = "%R"
-style = "bg:color_bg1"
-format = '[[  $time ](fg:color_fg0 bg:color_bg1)]($style)'
-
-[line_break]
-disabled = false
+[os.symbols]
+Alpine = " "
+Arch = " "
+Debian = " "
+EndeavourOS = " "
+Fedora = " "
+Linux = " "
+Macos = " "
+Manjaro = " "
+Mint = " "
+NixOS = " "
+openSUSE = " "
+Pop = " "
+SUSE = " "
+Ubuntu = " "
+Windows = " "
 
 [character]
+success_symbol = "[󰍟](fg:arrow)"
+error_symbol = "[󰍟](fg:red)"
+
+[directory]
+format = "[$path](bold $style)[$read_only]($read_only_style) "
+truncation_length = 2
+style = "fg:directory"
+read_only_style = "fg:directory"
+before_repo_root_style = "fg:directory"
+truncation_symbol = "…/"
+truncate_to_repo = true
+read_only = "  "
+
+[time]
+disabled = true
+format = "at [󱑈 $time]($style)"
+time_format = "%H:%M"
+style = "bold fg:time"
+
+[cmd_duration]
+format = "took [ $duration]($style) "
+style = "bold fg:duration"
+min_time = 500
+
+[git_branch]
+format = "via [$symbol$branch]($style) "
+style = "bold fg:git"
+symbol = " "
+
+[git_status]
+format = '[ $all_status$ahead_behind ]($style)'
+style = "fg:text_color bg:git"
+disabled = true
+
+[docker_context]
+disabled = true
+symbol = " "
+
+[package]
+disabled = true
+
+[fill]
+symbol = " "
+
+[nodejs]
+format = "[ $symbol$version ]($style)"
+style = "bg:node fg:text_light"
+symbol = " "
+version_format = "${raw}"
 disabled = false
-success_symbol = '[](bold fg:color_green)'
-error_symbol = '[](bold fg:color_red)'
-vimcmd_symbol = '[](bold fg:color_green)'
-vimcmd_replace_one_symbol = '[](bold fg:color_purple)'
-vimcmd_replace_symbol = '[](bold fg:color_purple)'
-vimcmd_visual_symbol = '[](bold fg:color_yellow)'
+
+[python]
+disabled = false
+format = '[ ${symbol}${pyenv_prefix}(${version})( \($virtualenv\)) ]($style)'
+symbol = " "
+version_format = "${raw}"
+style = "bg:python fg:text_light"
+
+[conda]
+format = "[ $symbol$environment ]($style)"
+style = "bg:conda fg:text_light"
+ignore_base = false
+disabled = false
+symbol = " "
+
+[java]
+format = "[ $symbol$version ]($style)"
+style = "bg:java fg:text_light"
+version_format = "${raw}"
+symbol = " "
+disabled = true
+
+[c]
+format = "[ $symbol($version(-$name)) ]($style)"
+style = "bg:clang fg:text_light"
+symbol = " "
+version_format = "${raw}"
+disabled = true
+
+[rust]
+format = "[ $symbol$version ]($style)"
+style = "bg:rust fg:text_light"
+symbol = " "
+version_format = "${raw}"
+disabled = true
