@@ -52,3 +52,4 @@ fi
 
 eval "$(starship init zsh)"
 
+
