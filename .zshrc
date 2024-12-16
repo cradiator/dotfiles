@@ -45,6 +45,12 @@ if command -v zoxide &> /dev/null; then
   eval "$(zoxide init zsh)"
 fi
 
+if command -v nvim &> /dev/null; then
+  alias v='nvim'
+  alias vim='nvim'
+  alias vi='nvim'
+fi
+
 # Load custom config
 if [[ -f "$HOME/.zsh/custom" ]]; then
         source "$HOME/.zsh/custom"
