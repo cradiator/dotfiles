@@ -51,6 +51,11 @@ if command -v nvim &> /dev/null; then
   alias vi='nvim'
 fi
 
+# mini conda
+if command -v conda &> /dev/null; then
+  eval "$(conda "shell.$(basename "${SHELL}")" hook)"
+fi
+
 # Load custom config
 if [[ -f "$HOME/.zsh/custom" ]]; then
         source "$HOME/.zsh/custom"
