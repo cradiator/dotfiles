@@ -33,6 +33,8 @@ if command -v lsd &> /dev/null; then
 else
   alias ls='ls --color=auto' # Fallback to default ls with color
 fi
+alias la='ls -a'
+alias ll='ls -l'
 
 if command -v fzf &> /dev/null; then
   if fzf --zsh &> /dev/null; then
