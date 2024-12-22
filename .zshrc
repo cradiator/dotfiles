@@ -8,24 +8,8 @@ if [[ -f ~/.ssh/agent-env ]]; then
     . ~/.ssh/agent-env > /dev/null
 fi
 
-# load OS specific configs
-if [[ "$(uname)" == "Darwin" ]]; then
-    # macOS
-    if [[ -f "$HOME/.zsh/mac" ]]; then
-        source "$HOME/.zsh/mac"
-    else
-        echo "Warning: ~/.zsh/mac not found."
-    fi
-elif [[ "$(uname)" == "Linux" ]]; then
-    # Linux
-    if [[ -f "$HOME/.zsh/linux" ]]; then
-        source "$HOME/.zsh/linux"
-    else
-        echo "Warning: ~/.zsh/linux not found."
-    fi
-else
-    echo "Unsupported OS: $(uname)"
-fi
+
+source "$HOME/.zsh/homebrew.sh"
 
 # Check if lsd is installed
 if command -v lsd &> /dev/null; then
