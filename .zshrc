@@ -10,6 +10,7 @@ fi
 
 
 source "$HOME/.zsh/homebrew.sh"
+source "$HOME/.zsh/yazi.sh"
 
 # Check if lsd is installed
 if command -v lsd &> /dev/null; then

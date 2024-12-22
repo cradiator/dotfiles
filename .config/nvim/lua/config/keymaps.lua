@@ -10,3 +10,5 @@ vim.keymap.set("i", "<C-o>", "<Esc>o", { noremap = true, silent = true })
 vim.keymap.set("i", "<C-l>", "<Right>", { noremap = true, silent = true })
 vim.keymap.set("i", "<C-h>", "<Left>", { noremap = true, silent = true })
 vim.keymap.set("i", "<C-;>", "<End>;<CR>", { noremap = true, silent = true })
+
+vim.keymap.set("i", "jj", "<Esc>", { noremap = true, silent = true })
