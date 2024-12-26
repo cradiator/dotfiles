@@ -16,3 +16,4 @@ brew install --cask iterm2
 brew install --cask microsoft-vscode
 brew install --cask visual-studio-code
 brew install --cask vmware-fusion
+brew install --cask wezterm
