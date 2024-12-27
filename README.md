@@ -12,8 +12,7 @@ brew install --cask font-0xproto-nerd-font
 brew install --cask sublime-text
 brew install --cask google-chrome
 brew install --cask google-drive
-brew install --cask iterm2
-brew install --cask microsoft-vscode
 brew install --cask visual-studio-code
 brew install --cask vmware-fusion
 brew install --cask wezterm
+brew install --cask rectangle
