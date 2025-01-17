@@ -1,5 +1,6 @@
 {
   "extras": [
+    "lazyvim.plugins.extras.coding.mini-surround",
     "lazyvim.plugins.extras.dap.core",
     "lazyvim.plugins.extras.editor.outline",
     "lazyvim.plugins.extras.lang.clangd",
@@ -8,7 +9,7 @@
     "lazyvim.plugins.extras.lang.toml"
   ],
   "news": {
-    "NEWS.md": "7429"
+    "NEWS.md": "10960"
   },
   "version": 7
 }

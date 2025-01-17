@@ -18,6 +18,7 @@ if command -v lsd &> /dev/null; then
 else
   alias ls='ls --color=auto' # Fallback to default ls with color
 fi
+alias l='ls'
 alias la='ls -a'
 alias ll='ls -l'
 
