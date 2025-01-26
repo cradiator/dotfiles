@@ -53,6 +53,11 @@ if [[ -f "$HOME/.zsh/custom" ]]; then
         source "$HOME/.zsh/custom"
 fi
 
+# Check if ~/.local/bin exists and add it to PATH if not already included
+if [ -d "$HOME/.local/bin" ] && [[ ":$PATH:" != *":$HOME/.local/bin:"* ]]; then
+    export PATH="$HOME/.local/bin:$PATH"
+fi
+
 eval "$(starship init zsh)"
 
 
