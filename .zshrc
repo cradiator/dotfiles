@@ -44,6 +44,10 @@ if command -v conda &> /dev/null; then
   eval "$(conda "shell.$(basename "${SHELL}")" hook)"
 fi
 
+if command -v thefuck &> /dev/null; then
+  eval $(thefuck --alias)
+fi
+
 # Load custom config
 if [[ -f "$HOME/.zsh/custom" ]]; then
         source "$HOME/.zsh/custom"
