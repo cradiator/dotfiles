@@ -48,6 +48,11 @@ if command -v thefuck &> /dev/null; then
   eval $(thefuck --alias)
 fi
 
+# zellij
+if command -v zellij &> /dev/null; then
+  alias zj='zellij'
+fi
+
 # Load custom config
 if [[ -f "$HOME/.zsh/custom" ]]; then
         source "$HOME/.zsh/custom"

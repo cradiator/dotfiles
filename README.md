@@ -21,6 +21,7 @@ brew install xsel
 brew install markdownlint-cli2  
 brew install yazi  
 brew install thefuck
+brew install zellij  
 
 # cask
 
