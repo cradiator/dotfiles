@@ -77,7 +77,6 @@ if command -v sgpt &> /dev/null; then
   fi
   }
   zle -N _sgpt_zsh
-  bindkey ^l _sgpt_zsh
-  # Shell-GPT integration ZSH v0.2
+  bindkey "\el" _sgpt_zsh  # alt + l
 fi
 
