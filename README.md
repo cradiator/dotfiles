@@ -22,6 +22,8 @@ brew install markdownlint-cli2
 brew install yazi  
 brew install thefuck
 brew install zellij  
+brew install pipx  
+pipx install shell-gpt  
 
 # cask
 
