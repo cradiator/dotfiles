@@ -20,14 +20,14 @@ brew install ruff
 brew install xsel  
 brew install markdownlint-cli2  
 brew install yazi  
-brew install thefuck
-brew install zellij  
-brew install pipx  
-pipx install shell-gpt  
+brew install thefuck  
+brew install uv  
+uv tool install shell-gpt
 
 # cask
 
 brew install --cask font-0xproto-nerd-font  
+brew install --cask font-smiley-sans
 brew install --cask sublime-text  
 brew install --cask google-chrome  
 brew install --cask google-drive  
