@@ -9,5 +9,5 @@ if command -v sgpt >/dev/null
         end
     end
 
-    bind \el _sgpt_fish  # 绑定 Alt+L
+    bind alt-l _sgpt_fish  # 绑定 Alt+L
 end
