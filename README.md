@@ -1,6 +1,7 @@
-# clone
+# Usage
 
-git clone <git@github.com>:cradiator/dotfiles.git
+git clone <git@github.com>:cradiator/dotfiles.git  
+cd dotfiles && stow .
 
 # required software
 
@@ -22,12 +23,13 @@ brew install markdownlint-cli2
 brew install yazi  
 brew install thefuck  
 brew install uv  
+brew install fish  
 uv tool install shell-gpt
 
 # cask
 
 brew install --cask font-0xproto-nerd-font  
-brew install --cask font-smiley-sans
+brew install --cask font-smiley-sans  
 brew install --cask sublime-text  
 brew install --cask google-chrome  
 brew install --cask google-drive  
