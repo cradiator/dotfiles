@@ -88,7 +88,7 @@ style = "fg:directory"
 read_only_style = "fg:directory"
 before_repo_root_style = "fg:directory"
 truncation_symbol = "…/"
-truncate_to_repo = true
+truncate_to_repo = false
 read_only = "  "
 
 [time]
