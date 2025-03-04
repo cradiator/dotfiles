@@ -23,7 +23,8 @@ brew install markdownlint-cli2
 brew install yazi  
 brew install thefuck  
 brew install uv  
-brew install fish  
+brew install fish   
+brew install direnv  
 uv tool install shell-gpt
 
 # cask
