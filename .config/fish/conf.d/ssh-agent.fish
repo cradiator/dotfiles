@@ -1,5 +1,5 @@
 # Start ssh-agent if not already running
-if not pgrep -x ssh-agent >/dev/null
+if not pgrep ssh-agent >/dev/null
     ssh-agent | awk -F'; ' '/=/ {split($1, kv, "="); print "set -gx", kv[1], kv[2]}' | grep -v '^echo' > ~/.ssh/agent-env.fish
 end
 
