@@ -1,0 +1,1 @@
+test -d "/opt/homebrew/opt/openjdk/bin"; and set -p PATH /opt/homebrew/opt/openjdk/bin
