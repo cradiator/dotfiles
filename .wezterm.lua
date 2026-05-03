@@ -6,7 +6,10 @@ local config = wezterm.config_builder()
 
 -- This is where you actually apply your config choices
 config.font = wezterm.font("0xProto Nerd Font Mono")
-config.font_size = 13
+config.font_size = 15
+
+config.initial_cols = 160
+config.initial_rows = 48
 
 -- if io.open("/opt/homebrew/bin/fish", "r") then
 --   config.default_prog = {"/opt/homebrew/bin/fish"}
