@@ -1,16 +1,18 @@
 # Start ssh-agent if not already running
-pgrep -l ssh-agent > /dev/null
-if [[ $? -ne 0 ]]; then
-    ssh-agent > ~/.ssh/agent-env
+if command -v ssh-agent &> /dev/null; then
+    pgrep -l ssh-agent > /dev/null
+    if [[ $? -ne 0 ]]; then
+        ssh-agent > ~/.ssh/agent-env
+    fi
+
+    if [[ -f ~/.ssh/agent-env ]]; then
+        . ~/.ssh/agent-env > /dev/null
+    fi
 fi
 
-if [[ -f ~/.ssh/agent-env ]]; then
-    . ~/.ssh/agent-env > /dev/null
-fi
 
-
-source "$HOME/.zsh/homebrew.sh"
-source "$HOME/.zsh/yazi.sh"
+[[ -f "$HOME/.zsh/homebrew.sh" ]] && source "$HOME/.zsh/homebrew.sh"
+[[ -f "$HOME/.zsh/yazi.sh" ]] && source "$HOME/.zsh/yazi.sh"
 
 # Check if lsd is installed
 if command -v lsd &> /dev/null; then
@@ -39,11 +41,6 @@ if command -v nvim &> /dev/null; then
   alias vi='nvim'
 fi
 
-# mini conda
-if command -v conda &> /dev/null; then
-  eval "$(conda "shell.$(basename "${SHELL}")" hook)"
-fi
-
 if command -v thefuck &> /dev/null; then
   eval $(thefuck --alias)
 fi
@@ -63,7 +60,9 @@ if [ -d "$HOME/.local/bin" ] && [[ ":$PATH:" != *":$HOME/.local/bin:"* ]]; then
     export PATH="$HOME/.local/bin:$PATH"
 fi
 
-eval "$(starship init zsh)"
+if command -v starship &> /dev/null; then
+  eval "$(starship init zsh)"
+fi
 
 if command -v sgpt &> /dev/null; then
   # Shell-GPT integration ZSH v0.2
@@ -80,3 +79,52 @@ if command -v sgpt &> /dev/null; then
   bindkey "\el" _sgpt_zsh  # alt + l
 fi
 
+
+_fzf_comprun() {
+  local command=$1
+  shift
+
+  case "$command" in
+    cd)          fzf --preview 'tree {}'   "$@" ;;
+    *)            fzf "$@" ;;
+  esac
+}
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+if [ -x "/opt/homebrew/Caskroom/miniforge/base/bin/conda" ]; then
+    __conda_setup="$('/opt/homebrew/Caskroom/miniforge/base/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+    if [ $? -eq 0 ]; then
+        eval "$__conda_setup"
+    else
+        if [ -f "/opt/homebrew/Caskroom/miniforge/base/etc/profile.d/conda.sh" ]; then
+            . "/opt/homebrew/Caskroom/miniforge/base/etc/profile.d/conda.sh"
+        else
+            export PATH="/opt/homebrew/Caskroom/miniforge/base/bin:$PATH"
+        fi
+    fi
+    unset __conda_setup
+fi
+# <<< conda initialize <<<
+
+if command -v direnv &> /dev/null; then
+  eval "$(direnv hook zsh)"
+fi
+
+
+# Added by Antigravity
+if [ -d "$HOME/.antigravity/antigravity/bin" ]; then
+  export PATH="$HOME/.antigravity/antigravity/bin:$PATH"
+fi
+
+if command -v claude &> /dev/null; then
+  c-cmd() {
+    local cmd
+    cmd=$(claude -p "Generate a single shell command to: $*. Output ONLY the raw command — no explanation, no markdown, no code fences." --model claude-sonnet-4-6 2>/dev/null)
+    [[ -n "$cmd" ]] && print -z "$cmd"
+  }
+
+  c-ask() {
+    claude -p "$*" --model claude-sonnet-4-6
+  }
+fi
